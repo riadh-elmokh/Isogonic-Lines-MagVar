@@ -6,10 +6,10 @@ about=Isogonic Lines & MagVar gives you the magnetic declination (magnetic varia
     Features: add declination, annual change (degrees per year) and a label to any point, line or polygon layer; click the map for a result card with the declination, a true-scale compass, inclination, total field, the trend over 10 years and the position in degrees, minutes and seconds (with a live mode that follows the cursor); draw isogonic lines for any extent, date and interval from 0.01° to 10°, with the zero line styled separately; compare lines you already have against the models to find which model and date they came from. Results are saved as GeoPackage or Shapefile.
     Models: NOAA WMM2025 by default, WMMHR2025 (high resolution), WMM2010-2020 and IGRF-14 (any year since 1900), all bundled in the plugin. WMM2025 and WMMHR2025 match NOAA's own software and calculator.
     Declination comes from a global model with limited accuracy (typically about 0.5°, worse near the magnetic poles). For official use, check the values against the authority's data (for aviation, the AIP). Not affiliated with ICAO or NOAA.
-version=1.0.0
+version=1.0.1
 author=Riadh Elmokh
 email=riadhelmokh09@gmail.com
-changelog=1.0.0 - First release.
+changelog=1.0.1 - Clearer result card.
 tags=magnetic,declination,magnetic variation,isogonic,isogonic lines,compass,navigation,aviation,aeronautical,marine,nautical,surveying,geomagnetic,wmm,igrf
 homepage=https://github.com/riadh-elmokh/isogonic-magvar
 tracker=https://github.com/riadh-elmokh/isogonic-magvar/issues

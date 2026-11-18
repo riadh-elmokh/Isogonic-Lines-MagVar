@@ -491,7 +491,7 @@ class MagVarDialog(QDialog):
 
     def _show_values(self, v, mode):
         self.res_pos.setText("%s  %s" % (v["lat_dms"], v["lon_dms"]))
-        self.res_decl.setText("%s  (%.2f°, label %s)" % (v["dm"], v["decl"], v["label"]))
+        self.res_decl.setText("%.2f° %s  (%s, chart label %s)" % (abs(v["decl"]), "E" if v["decl"] >= 0 else "W", v["dm"], v["label"]))
         self.res_change.setText("%+.4f° / year" % v["change"])
         self.res_incl.setText("%.2f°" % v["incl"])
         self.res_total.setText("%.0f nT" % v["total"])

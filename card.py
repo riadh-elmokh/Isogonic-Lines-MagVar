@@ -19,7 +19,7 @@ WEST = QColor("#e8590c")
 ZERO = QColor("#2f9e44")
 INK = QColor("#14181f")
 MUTED = QColor("#6b7380")
-CARD_W = 420
+CARD_W = 480
 
 
 def accent_for(decl):
@@ -284,6 +284,8 @@ class ResultCard(QFrame):
             "#magvarCard QPushButton{background:#f3f5f9;border:1px solid #cdd4df;border-radius:7px;"
             "padding:6px 12px;color:#14181f;font-weight:bold;font-size:13px;}"
             "#magvarCard QPushButton:hover{background:#e7ebf2;}"
+            "#magvarCard QPushButton#primaryBtn{background:#1d6fe8;color:white;border:1px solid #1859bd;}"
+            "#magvarCard QPushButton#primaryBtn:hover{background:#1859bd;}"
             "#closeb{background:rgba(255,255,255,0.2);border:none;color:#ffffff;border-radius:11px;"
             "padding:0;font-size:15px;}"
             "#closeb:hover{background:rgba(255,255,255,0.38);}")
@@ -336,7 +338,8 @@ class ResultCard(QFrame):
         self.big.setFont(_font(self, 34, True))
         col.addWidget(self.big)
         self.sub = QLabel("")
-        self.sub.setStyleSheet("font-size:13px;color:#4b5563;")
+        self.sub.setStyleSheet("font-size:14px;color:#374151;")
+        self.sub.setWordWrap(True)
         col.addWidget(self.sub)
         self.dirchip = QLabel("")
         self.dirchip.setObjectName("dirchip")
@@ -403,10 +406,11 @@ class ResultCard(QFrame):
         btns = QHBoxLayout()
         btns.setSpacing(8)
         self.copy_btn = QPushButton("Copy values")
+        self.copy_btn.setObjectName("primaryBtn")
         self.copy_btn.clicked.connect(self.copy_requested.emit)
         btns.addWidget(self.copy_btn, 1)
-        self.plugin_btn = QPushButton("Plugin window")
-        self.plugin_btn.setToolTip("Bring the plugin window back")
+        self.plugin_btn = QPushButton("Settings && layers")
+        self.plugin_btn.setToolTip("Back to the Isogonic Lines & MagVar window (date, model, isogonic lines)")
         self.plugin_btn.clicked.connect(self.plugin_requested.emit)
         btns.addWidget(self.plugin_btn, 1)
         body.addLayout(btns)
@@ -419,10 +423,11 @@ class ResultCard(QFrame):
         d = data["decl"]
         col = accent_for(d)
         self.head.setStyleSheet("#head{background:%s;}" % col.name())
-        self.dial.set_decl(d, data["dm"], animate and self.isVisible())
-        self.big.setText(data["dm"])
-        self.big.setStyleSheet("color:%s;font-size:36px;font-weight:bold;" % col.name())
-        self.sub.setText("%+.4f°   •   chart label %s" % (d, data["label"]))
+        big = "%.2f° %s" % (abs(d), "E" if d >= 0 else "W")
+        self.dial.set_decl(d, big, animate and self.isVisible())
+        self.big.setText(big)
+        self.big.setStyleSheet("color:%s;font-size:40px;font-weight:bold;" % col.name())
+        self.sub.setText("%s  •  %+.4f°<br><b>Chart label: %s</b>" % (data["dm"], d, data["label"]))
         if abs(d) < 0.05:
             chip, word = "ZERO", "Magnetic north = true north"
         elif d > 0:
