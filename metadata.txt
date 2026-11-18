@@ -1,0 +1,20 @@
+[general]
+name=Isogonic Lines & MagVar
+qgisMinimumVersion=3.20
+description=Magnetic declination and isogonic lines for aviation, marine, surveying and navigation maps, offline (WMM, WMMHR, IGRF)
+about=Isogonic Lines & MagVar gives you the magnetic declination (magnetic variation) anywhere on Earth and draws isogonic lines (lines of equal declination), fully offline. Use it for aeronautical charts (Annex 4 style labels such as 5°E), nautical charts and compass roses, topographic map declination diagrams, surveying and drone work, hiking, orienteering and land navigation, or geomagnetic studies.
+    Features: add declination, annual change (degrees per year) and a label to any point, line or polygon layer; click the map for a result card with the declination, a true-scale compass, inclination, total field, the trend over 10 years and the position in degrees, minutes and seconds (with a live mode that follows the cursor); draw isogonic lines for any extent, date and interval from 0.01° to 10°, with the zero line styled separately; compare lines you already have against the models to find which model and date they came from. Results are saved as GeoPackage or Shapefile.
+    Models: NOAA WMM2025 by default, WMMHR2025 (high resolution), WMM2010-2020 and IGRF-14 (any year since 1900), all bundled in the plugin. WMM2025 and WMMHR2025 match NOAA's own software and calculator.
+    Declination comes from a global model with limited accuracy (typically about 0.5°, worse near the magnetic poles). For official use, check the values against the authority's data (for aviation, the AIP). Not affiliated with ICAO or NOAA.
+version=1.0.0
+author=Riadh Elmokh
+email=riadhelmokh09@gmail.com
+changelog=1.0.0 - First release.
+tags=magnetic,declination,magnetic variation,isogonic,isogonic lines,compass,navigation,aviation,aeronautical,marine,nautical,surveying,geomagnetic,wmm,igrf
+homepage=https://github.com/riadh-elmokh/isogonic-magvar
+tracker=https://github.com/riadh-elmokh/isogonic-magvar/issues
+repository=https://github.com/riadh-elmokh/isogonic-magvar
+icon=icon.png
+category=Vector
+experimental=False
+deprecated=False
